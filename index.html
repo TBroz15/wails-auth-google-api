@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="no-referrer" />
-        <<<<<<< HEAD
         <title>Authenticating...</title>
         <style>
             :root {
@@ -35,18 +34,19 @@
                 const state = urlParams.get("state");
 
                 if (!code) {
-                    document.body.innerHTML = "<h2>huh</h2>";
-                }
-
-                if (!code || !state) {
-                    window.location.replace(
-                        `http://wails.localhost/auth?code=${code}&state=${state}`,
-                    );
+                    document.body.innerHTML = `<h2>no auth code?</h2>\n<a href="https://github.com/TBroz15/wails-auth-google-api/blob/main/README.md" target="_blank" rel="noopener noreferrer">what is this?</a>`;
                     return;
                 }
 
-                document.body.innerHTML =
-                    "Invalid request. Please return to the app.";
+                if (!state) {
+                    document.body.innerHTML = "<h2>no state?</h2>";
+                    return;
+                }
+
+                document.body.innerHTML = `<p>Authenticating...</p>`;
+                window.location.replace(
+                    `http://wails.localhost/auth?code=${code}&state=${state}`,
+                );
             })();
         </script>
     </body>
