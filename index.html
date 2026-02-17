@@ -43,7 +43,7 @@
                     return;
                 }
 
-                document.body.innerHTML = `<p>Authenticating...</p>`;
+                document.body.innerHTML = `<h2>Authenticating...</h2>`;
                 window.location.replace(
                     `http://wails.localhost/auth?code=${code}&state=${state}`,
                 );
