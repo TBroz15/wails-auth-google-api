@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="referrer" content="no-referrer" />
+        <title>Authenticating...</title>
+    </head>
+    <body>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get("code");
+            const state = urlParams.get("state");
+
+            if (!code || !state)
+                return window.location.replace(
+                    `http://wails.localhost/auth?code=${code}&state=${state}`,
+                );
+
+            document.body.innerHTML =
+                "Invalid request. Please return to the app.";
+        </script>
+    </body>
+</html>
