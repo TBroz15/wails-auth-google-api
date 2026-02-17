@@ -5,6 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="no-referrer" />
         <title>Authenticating...</title>
+        <style>
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #333333;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg-color: #222222;
+                    --text-color: #ffffff;
+                }
+            }
+
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                font-family: sans-serif;
+            }
+        </style>
     </head>
     <body>
         <script>
@@ -12,6 +31,10 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 const code = urlParams.get("code");
                 const state = urlParams.get("state");
+
+                if (!code) {
+                    document.body.innerHTML = "<h2>huh</h2>";
+                }
 
                 if (!code || !state) {
                     window.location.replace(
