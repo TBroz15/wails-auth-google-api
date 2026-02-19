@@ -38,7 +38,10 @@
         <script>
             (() => {
                 const params = new URLSearchParams(window.location.search);
-                const url = `http://wails.localhost/auth?code=${params.get("code")}&state=${params.get("state")}`;
+                const code = params.get("code");
+                const state = params.get("state");
+
+                const url = `http://wails.localhost/auth?code=${code}&state=${state}`;
 
                 if (!code) {
                     document.body.innerHTML = `<h2>wails-auth-google-api</h2>\n<a href="https://github.com/TBroz15/wails-auth-google-api/blob/main/README.md" target="_blank" rel="noopener noreferrer">what is this?</a>`;
@@ -50,12 +53,8 @@
                     return;
                 }
 
-                document.body.innerHTML = `<h2>Authenticating...</h2>`;
+                document.body.innerHTML = `<h2>Authenticating...</h2> <a href="${url}">Click me if you have not been redirected!</a>`;
                 window.location.replace(url);
-
-                setTimeout(() => {
-                    document.body.innerHTML += `<a href="${url}">Click me if you have not been redirected!</a>`;
-                }, 2000);
             })();
         </script>
     </body>
