@@ -1,9 +1,10 @@
 # wails-auth-google-api
+
 tuxebro's weirdest way of authenticating for wails apps to use google's api
 
 ### "Why?"
 
-Google's OAuth needs a Redirect URI with HTTPS and a Top-Level Domain like `.io` and `.com`. But Wails applications runs locally, using `wails.localhost` in HTTP. So this hacky project was made to circumvent that problem. 
+Google's OAuth needs a Redirect URI with HTTPS and a Top-Level Domain like `.io` and `.com`. But Wails applications runs locally, using `wails.localhost` in HTTP. So this hacky project was made to circumvent that problem.
 
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/228a9c1a-7e61-43ac-becf-ec8dfb8dbd1b" />
 

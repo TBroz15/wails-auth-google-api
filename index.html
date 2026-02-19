@@ -8,13 +8,15 @@
         <style>
             :root {
                 --bg-color: #ffffff;
-                --text-color: #333333;
+                --text-color: chucknorris;
+                --anchor-color: blue;
             }
 
             @media (prefers-color-scheme: dark) {
                 :root {
                     --bg-color: #222222;
                     --text-color: #ffffff;
+                    --anchor-color: skyblue;
                 }
             }
 
@@ -22,9 +24,16 @@
                 background-color: var(--bg-color);
                 color: var(--text-color);
                 font-family: sans-serif;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            a {
+                color: var(--anchor-color);
             }
         </style>
-        <title>Authenticating...</title>
+        <title>wails-auth-google-api</title>
     </head>
     <body>
         <script>
@@ -34,7 +43,7 @@
                 const state = urlParams.get("state");
 
                 if (!code) {
-                    document.body.innerHTML = `<h2>no auth code?</h2>\n<a href="https://github.com/TBroz15/wails-auth-google-api/blob/main/README.md" target="_blank" rel="noopener noreferrer">what is this?</a>`;
+                    document.body.innerHTML = `<h2>wails-auth-google-api</h2>\n<a href="https://github.com/TBroz15/wails-auth-google-api/blob/main/README.md" target="_blank" rel="noopener noreferrer">what is this?</a>`;
                     return;
                 }
 
