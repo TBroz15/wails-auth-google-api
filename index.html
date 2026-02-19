@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="referrer" content="no-referrer" />
-        <title>Authenticating...</title>
         <style>
             :root {
                 --bg-color: #ffffff;
@@ -38,9 +37,8 @@
     <body>
         <script>
             (() => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const code = urlParams.get("code");
-                const state = urlParams.get("state");
+                const params = new URLSearchParams(window.location.search);
+                const url = `http://wails.localhost/auth?code=${params.get("code")}&state=${params.get("state")}`;
 
                 if (!code) {
                     document.body.innerHTML = `<h2>wails-auth-google-api</h2>\n<a href="https://github.com/TBroz15/wails-auth-google-api/blob/main/README.md" target="_blank" rel="noopener noreferrer">what is this?</a>`;
@@ -53,9 +51,11 @@
                 }
 
                 document.body.innerHTML = `<h2>Authenticating...</h2>`;
-                window.location.replace(
-                    `http://wails.localhost/auth?code=${code}&state=${state}`,
-                );
+                window.location.replace(url);
+
+                setTimeout(() => {
+                    document.body.innerHTML += `<a href="${url}">Click me if you have not been redirected!</a>`;
+                }, 2000);
             })();
         </script>
     </body>
